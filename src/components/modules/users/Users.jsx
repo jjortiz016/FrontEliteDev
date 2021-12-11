@@ -7,8 +7,8 @@ import {
 
 import { useHistory } from 'react-router'
 import { Table, Button, Form, Navbar, FormControl, Container } from "react-bootstrap"
-import addUser from '../users/addUser';
-import editUser from '../users/editUser';
+import addUser from './addUser';
+import editUser from './editUser';
 
 
 
