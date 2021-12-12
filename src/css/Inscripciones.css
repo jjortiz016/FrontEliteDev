@@ -1,0 +1,48 @@
+body{
+    background-image: url('./imagen.png');
+}
+
+.table-container{
+    width: 900px;
+    background: #75727b;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 10px;
+    font-family: "calibri";
+    color: white;
+    box-shadow: 7px 13px 37px #db3d44;
+    opacity: 0.8;
+}
+
+.boton{
+    background-color: #db3d44;
+    border-radius: 0.3em;
+    color: white;
+    box-shadow: 0.5px 1.5px 3px #ffffff;
+}
+
+.boton.azul{
+    background-color: #000d36;
+    border-radius: 0.3em;
+    color: white;
+    box-shadow: 0.5px 1.5px 3px #ffffff;
+}
+
+
+
+.listaOpciones{
+    border-collapse: separate;
+    border-spacing: 10px 5px;
+}
+
+.titulo{
+    color:#ffffff;
+}
+
+.contenido{
+    color:#ffffff;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1.2em;
+}
+
