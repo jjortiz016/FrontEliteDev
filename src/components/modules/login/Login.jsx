@@ -42,7 +42,7 @@ const Login = () => {
                     <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su contraseña"/>
                    
                     <input class="botons" type="submit" onClick={enter} value="Entrar"/>
-                  <Button variant="danger" onClick={enter}>Ingresar</Button>
+                  
                <p><a href="#" onClick={handleShow}>Registrate!</a></p>
                
              </form>
