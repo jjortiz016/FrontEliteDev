@@ -57,7 +57,16 @@ const Login = () => {
             <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese sus apellidos"/>
             <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo"/>
             <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su contraseña"/>
-            <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+            <select class="controls" name="rol" className="form-select" id="role" required="">
+                                        <option value="">Seleccionar</option>
+                                        <option>Estudiante</option>
+                                        <option>Lider</option>
+                                        <option>Administrador</option>
+                                        
+                                    </select>
+           
+           
+           <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
 
 
 

@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+
+// creamos el client apollo
+
+const client = new ApolloClient ({
+  uri: "https://graphqlzero.almansi.me/api", // colocamo el endpoint
+  cache: new InMemoryCache(), //para guardar datos en el cache del cliente y no tener que volver a consultar
+
+
+});
 
 ReactDOM.render(
   <React.StrictMode>
