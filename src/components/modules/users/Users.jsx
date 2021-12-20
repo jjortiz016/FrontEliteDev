@@ -1,4 +1,5 @@
 import React from 'react'
+import {VIEWER_QUERY_ALL_USERS } from '../../graphql/users.graphql'
 import {
     BrowserRouter,
     Switch,
@@ -9,10 +10,13 @@ import { useHistory } from 'react-router'
 import { Table, Button, Form, Navbar, FormControl, Container } from "react-bootstrap"
 import addUser from './addUser';
 import editUser from './editUser';
+import { useQuery } from '@apollo/client';
 
 
 
 const Users = () => {
+   const {data} = useQuery(VIEWER_QUERY_ALL_USERS)
+
     const history= useHistory();
 
    const submit =(e) => {
@@ -52,6 +56,7 @@ const Users = () => {
            </div>
         
            <div>
+               {data?.allUsers.nombre}
               <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#">Filtro</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />

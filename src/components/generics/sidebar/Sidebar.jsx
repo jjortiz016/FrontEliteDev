@@ -83,14 +83,14 @@ const IsSidebar = () => {
                 </SideNav.Nav>
             </SideNav>
             <main>  
-                
+               
                
                 <Route path="/home" component={Home} />
                 <Route path="/users" component={props => <Users />} />
                 <Route path="/proyects" component={props => <Projects />} />
                 <Route path="/inscriptions" component={props => <Inscriptions />} />
                 <Route path="/advances" component={props => <Advances />} />
-                <Route path="/register" component={props => <Register />} />
+                <Route path="/register" component={props => <Register />} />*/
              
                
             </main>

@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import { useState } from 'react';
+import { setContext } from '@apollo/client/link/context';
 import { Table, Button, Form, Modal, FormControl, Container } from "react-bootstrap"
 import { useHistory } from 'react-router'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,9 +12,56 @@ import {
     Route,
   } from "react-router-dom";
  
-
+import {REGISTER } from '../../graphql/users.graphql'
+import { useMutation } from '@apollo/client';
 
 const Login = () => {
+
+  //  const [register, data.error] = useMutation(REGISTER);
+    const [register] = useMutation(REGISTER);
+    const handleRegister =() =>{
+        register({
+            variables: {
+               "input":{
+                "correo":"admin@admin.com",
+                "identificacion":"1234568",
+                "nombre":"Lucas Cifuentes",
+                "contrasena":"1234",
+                "rol":"Administrador",
+            
+
+               }
+
+            }
+
+        });
+    };
+
+    const initialValues ={
+        correo:'',
+        identificacion:'',
+        nombre:'',
+        contrasena:'',
+        rol:'',
+    };
+
+const validationSchema= Yup.object({
+    correo: Yup.string().correo('Correo inválido').required('Campo requerido'),
+    identificacion: Yup.number('Ingresa solo números').required('Campo requerido'),
+    nombre:Yup.string().required('Campo requerido'),
+    contrasena:'',
+    rol:'',
+
+})
+
+
+
+
+   /* if (error){
+        console.log(error);
+        
+    }*/
+
     const history= useHistory();
 
   /*llamado de modal*/
@@ -53,29 +101,26 @@ const Login = () => {
                 <Modal.Title>Registro</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre completo"/>
-            <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese sus apellidos"/>
-            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo"/>
-            <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su contraseña"/>
-            <select class="controls" name="rol" className="form-select" id="role" required="">
-                                        <option value="">Seleccionar</option>
-                                        <option>Estudiante</option>
-                                        <option>Lider</option>
-                                        <option>Administrador</option>
-                                        
-                                    </select>
-           
-           
-           <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-
-
-
+                            <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre completo"/>
+                            <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese sus apellidos"/>
+                            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo"/>
+                            <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su contraseña"/>
+                            <select class="controls" name="rol" className="form-select" id="role" required="">
+                                                        <option value="">Seleccionar</option>
+                                                        <option>Estudiante</option>
+                                                        <option>Lider</option>
+                                                        <option>Administrador</option>
+                                                        
+                                                    </select>
+                        
+                        
+                        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="danger" onClick={handleClose}>
+                <Button variant="danger" onClick={handleRegister}>
                     Save Changes
                 </Button>
                 </Modal.Footer>
